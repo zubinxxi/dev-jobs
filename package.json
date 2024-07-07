@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon ./index"
   },
-  "author": "Zubin Juárez m",
+  "author": "Zubin Juárez",
   "license": "ISC",
   "dependencies": {
     "connect-mongo": "^5.1.0",
