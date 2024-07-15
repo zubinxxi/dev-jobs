@@ -43,21 +43,28 @@ const vacantesSchema = new mongoose.Schema({
         type: String,
         lowercase: true
     },
-    
-    skills: [{
+
+    skills: [String],
+
+    candidatos: [{
         nombre: String,
         email: String,
         cv: String
-    }]
+    }],
+
+
 })
 
 vacantesSchema.pre('save', function(next) {
+
     // crear la url
-    const url = slug(this.titulo)
-    this.url = `${url}-${shortid.generate()}`
+    const url = slug(this.titulo);
+    this.url = `${url}-${shortid.generate()}`;
 
-
-    netx()
+    next();
 })
+
+// Crear un indice
+//vacantesSchema.index({ titulo : 'text' });
 
 module.exports = mongoose.model('Vacante', vacantesSchema)
