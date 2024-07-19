@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const homeController = require('../controllers/homeController') 
 const vacantesControler = require('../controllers/vacantesController')
+const usuariosController = require('../controllers/usuariosController')
 const Vacantes = require('../models/Vacantes')
 
 module.exports = () => {
@@ -17,6 +18,9 @@ module.exports = () => {
     // Editar vacante
     router.get('/vacante/editar/:url', vacantesControler.formEditarVacante)
     router.post('/vacantes/editar/:url', vacantesControler.editarVacante)
+
+    // Crear cuentas
+    router.get('/crear-cuenta', usuariosController.formCrearCuenta)
 
     return router
 }
