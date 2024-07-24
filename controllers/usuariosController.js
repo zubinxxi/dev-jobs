@@ -47,21 +47,22 @@ exports.validarRegistro = (req, res, next) => {
 
 
 exports.crearUsuario = async (req, res, next) => {
-    
     // crear el usuario
     const usuario = new Usuarios(req.body);
-    
     try {
         await usuario.save();
         res.redirect('/iniciar-sesion');
     } catch (error) {
-        req.flash('error', error)
-        //res.redirect('/crear-cuenta')
-        res.render('crear-cuenta', {
-            nombrePagina: 'Crea tu cuenta en devJobs',
-            tagline: 'Comienza a publicar tus vacantes gratis, solo debes crear una cuenta',
-            mensajes: req.flash()
-        });
-        return;
+        req.flash('error', error);
+        res.redirect('/crear-cuenta');
     }
+}
+
+
+
+// formulario para iniciar sesión
+exports.formIniciarSesion = (req, res ) => {
+    res.render('iniciar-sesion', {
+        nombrePagina : 'Iniciar Sesión devJobs'
+    })
 }
