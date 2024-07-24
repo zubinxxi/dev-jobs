@@ -56,3 +56,4 @@ usuariosSchema.methods = {
 }
 
 module.exports = mongoose.model('Usuarios', usuariosSchema)
+
