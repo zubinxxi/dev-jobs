@@ -19,7 +19,7 @@ exports.verificarUsuario = (req, res, next) => {
 
 
     // Redirecionar a inicir sesion
-    res.redirect('iniciar-sesion')
+    res.redirect('/iniciar-sesion')
 }
 
 exports.mostrarPanel = async (req, res) => {
