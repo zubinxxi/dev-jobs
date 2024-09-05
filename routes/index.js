@@ -28,9 +28,16 @@ module.exports = () => {
     router.get('/iniciar-sesion', usuariosController.formIniciarSesion)
     router.post('/iniciar-sesion', authController.autenticarUsuario)
 
+    // Cerrar sesion
+    router.get('/cerrar-sesion', authController.verificarUsuario, authController.cerrarSesion)
+
+
     // Panel de administración
     router.get('/administracion', authController.verificarUsuario, authController.mostrarPanel)
 
+    // Editar perfil
+    router.get('/editar-perfil', authController.verificarUsuario, usuariosController.formEditarPerfil)
+    router.post('/editar-perfil', authController.verificarUsuario, usuariosController.editarPerfil)
 
 
 
